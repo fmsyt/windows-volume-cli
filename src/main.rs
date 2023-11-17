@@ -69,26 +69,17 @@ struct StateArgs {
 
 
 fn main() {
-    let args = Cli::parse();
-    println!("{:?}", args);
-
+    let _args = Cli::parse();
     futures::executor::block_on(get_list());
 }
 
 
 async fn get_list() {
 
-    // デバイス一覧を非同期的に取得
     let devices = DeviceInformation::FindAllAsyncDeviceClass(DeviceClass::AudioRender).unwrap().await.unwrap();
 
     for device in devices {
-
-        let mut name = device.Name().unwrap().to_os_string().into_string().unwrap();
-        // sjis to utf8
-        let (cow, _encoding_used, _had_errors) = encoding_rs::SHIFT_JIS.decode(&name.as_bytes());
-        name = cow.into_owned();
-
-        println!("{}: {}", device.Id().unwrap(), name);
+        let name = device.Name().unwrap().to_os_string().into_string().unwrap();
+        println!("{}", name);
     }
-
 }
