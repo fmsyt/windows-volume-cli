@@ -1,0 +1,47 @@
+{
+    // IntelliSense を使用して利用可能な属性を学べます。
+    // 既存の属性の説明をホバーして表示します。
+    // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'windows-volume-cli'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=windows-volume-cli",
+                    "--package=windows-volume-cli"
+                ],
+                "filter": {
+                    "name": "windows-volume-cli",
+                    "kind": "bin"
+                }
+            },
+            "args": [
+                "--list"
+            ],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'windows-volume-cli'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=windows-volume-cli",
+                    "--package=windows-volume-cli"
+                ],
+                "filter": {
+                    "name": "windows-volume-cli",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}

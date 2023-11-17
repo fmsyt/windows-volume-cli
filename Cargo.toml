@@ -1,0 +1,12 @@
+[package]
+name = "windows-volume-cli"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+clap = { version = "4.4.8", features = ["derive"] }
+encoding_rs = "0.8.33"
+futures = "0.3.29"
+windows = { version = "0.52.0", features = ["Media_Audio", "Devices_Enumeration", "Foundation_Collections"] }
